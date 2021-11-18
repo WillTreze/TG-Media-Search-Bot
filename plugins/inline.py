@@ -33,7 +33,7 @@ async def answer(bot, query):
         file_type = None
 
     offset = int(query.offset or 0)
-    reply_markup = get_reply_markup(bot.username, query=string)
+#     reply_markup = get_reply_markup(bot.username, query=string)
     files, next_offset = await get_search_results(string,
                                                   file_type=file_type,
                                                   max_results=10,
@@ -70,13 +70,13 @@ async def answer(bot, query):
                            switch_pm_parameter="okay")
 
 
-def get_reply_markup(username, query):
-    url = 't.me/share/url?url=' + quote(SHARE_BUTTON_TEXT.format(username=username))
-    buttons = [[
-        InlineKeyboardButton('Search again', switch_inline_query_current_chat=query),
-        InlineKeyboardButton('Share bot', url=url),
-    ]]
-    return InlineKeyboardMarkup(buttons)
+# def get_reply_markup(username, query):
+#     url = 't.me/share/url?url=' + quote(SHARE_BUTTON_TEXT.format(username=username))
+#     buttons = [[
+#         InlineKeyboardButton('Search again', switch_inline_query_current_chat=query),
+#         InlineKeyboardButton('Share bot', url=url),
+#     ]]
+#     return InlineKeyboardMarkup(buttons)
 
 
 def get_size(size):
