@@ -47,7 +47,7 @@ async def index_files(bot, message):
                                     replies=0,
                                 )
                             
-                            for file_type in ("document", "video", "audio"):
+                            for file_type in ("document", "video", "audio", "image"):
                                 media = getattr(message, file_type, None)
                                 if media is not None:
                                     break
