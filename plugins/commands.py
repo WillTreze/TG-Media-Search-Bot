@@ -43,13 +43,19 @@ async def channel_info(bot, message):
     text += f'\n\n**Total:** {len(CHANNELS)}'
 
     if len(text) < 4096:
-        await message.reply(text)
+        tmp_msg = await message.reply(text)
+        
+        time.sleep(10)
+        await tmp_msg.delete()
     else:
         file = 'Indexed channels.txt'
         with open(file, 'w') as f:
             f.write(text)
-        await message.reply_document(file)
+        tmp_msg = await message.reply_document(file)
         os.remove(file)
+        
+        time.sleep(10)
+        await tmp_msg.delete()
 
 
 @Client.on_message(filters.command('total') & filters.user(ADMINS))
