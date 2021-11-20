@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from utils import save_file
 from info import CHANNELS
 
-media_filter = filters.document | filters.video | filters.audio | filters.photo | filters.private | filters.media
+media_filter = filters.document | filters.video | filters.audio | filters.photo
 
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
