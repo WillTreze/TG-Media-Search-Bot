@@ -83,7 +83,7 @@ async def delete(bot, message):
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
 
-    for file_type in ("document", "video", "audio", "media_group", "photo", "sticker", "photo/png", "photo/jpg", "jpg"):
+    for file_type in ("document", "video", "audio", "photo", "sticker"):
         media = getattr(reply, file_type, None)
         if media is not None:
             break
