@@ -28,7 +28,7 @@ async def main():
                     user_message.message_id,
                     replies=0,
                 )
-                for file_type in ("document", "video", "audio", "image"):
+                for file_type in ("document", "video", "audio", "media_group", "photo"):
                     media = getattr(message, file_type, None)
                     if media is not None:
                         break
