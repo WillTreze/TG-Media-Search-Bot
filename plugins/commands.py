@@ -15,7 +15,7 @@ async def start(bot, message):
     if len(message.command) > 1 and message.command[1] == 'subscribe':
         tmp_msg = await message.reply(INVITE_MSG)
                 
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
     else:
         buttons = [[
@@ -25,7 +25,7 @@ async def start(bot, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         tmp_msg = await message.reply(START_MSG, reply_markup=reply_markup)
                 
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
 
 
@@ -52,7 +52,7 @@ async def channel_info(bot, message):
     if len(text) < 4096:
         tmp_msg = await message.reply(text)
         
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
     else:
         file = 'Indexed channels.txt'
@@ -61,7 +61,7 @@ async def channel_info(bot, message):
         tmp_msg = await message.reply_document(file)
         os.remove(file)
         
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
 
 
@@ -73,13 +73,13 @@ async def total(bot, message):
         total = await Media.count_documents()
         tmp_msg = await msg.edit(f'📁 Saved files: {total}')
         
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
     except Exception as e:
         logger.exception('Failed to check total files')
         tmp_msg = await msg.edit(f'Error: {e}')
                 
-        time.sleep(10)
+        time.sleep(5)
         await tmp_msg.delete()
 
 
