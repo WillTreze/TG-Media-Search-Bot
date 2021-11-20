@@ -13,14 +13,20 @@ logger = logging.getLogger(__name__)
 async def start(bot, message):
     """Start command handler"""
     if len(message.command) > 1 and message.command[1] == 'subscribe':
-        await message.reply(INVITE_MSG)
+        tmp_msg = await message.reply(INVITE_MSG)
+                
+        time.sleep(10)
+        await tmp_msg.delete()
     else:
         buttons = [[
             InlineKeyboardButton('Search Here', switch_inline_query_current_chat=''),
             InlineKeyboardButton('Go Inline', switch_inline_query=''),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply(START_MSG, reply_markup=reply_markup)
+        tmp_msg = await message.reply(START_MSG, reply_markup=reply_markup)
+                
+        time.sleep(10)
+        await tmp_msg.delete()
 
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
@@ -65,10 +71,16 @@ async def total(bot, message):
     msg = await message.reply("Processing...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'📁 Saved files: {total}')
+        tmp_msg = await msg.edit(f'📁 Saved files: {total}')
+        
+        time.sleep(10)
+        await tmp_msg.delete()
     except Exception as e:
         logger.exception('Failed to check total files')
-        await msg.edit(f'Error: {e}')
+        tmp_msg = await msg.edit(f'Error: {e}')
+                
+        time.sleep(10)
+        await tmp_msg.delete()
 
 
 @Client.on_message(filters.command('logger') & filters.user(ADMINS))
