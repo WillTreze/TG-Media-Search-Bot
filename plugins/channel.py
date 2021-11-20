@@ -2,13 +2,13 @@ from pyrogram import Client, filters
 from utils import save_file
 from info import CHANNELS
 
-media_filter = filters.document | filters.video | filters.audio | filters.media_group
+media_filter = filters.document | filters.video | filters.audio | filters.media_group | filters.sticker
 
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
 async def media(bot, message):
     """Media Handler"""
-    for file_type in ("document", "video", "audio", "media_group"):
+    for file_type in ("document", "video", "audio", "media_group", "photo", "sticker"):
         media = getattr(message, file_type, None)
         if media is not None:
             break
