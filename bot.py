@@ -10,7 +10,6 @@ from pyrogram.raw.all import layer
 from utils import Media
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN
 
-
 class Bot(Client):
 
     def __init__(self):

@@ -3,6 +3,19 @@ from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
 
+# Set environment variables
+# environ['API_ID'] = ''
+# environ['API_HASH'] = ''
+# environ['AUTH_CHANNEL'] = ''
+# environ['ADMINS'] = ''
+# environ['AUTH_USERS'] = ''
+# environ['CHANNELS'] = ''
+# environ['BOT_TOKEN'] = ''
+# environ['DATABASE_URI'] = ''
+# environ['DATABASE_NAME'] = ''
+# environ['COLLECTION_NAME'] = ''
+
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 USER_SESSION = environ.get('USER_SESSION', 'User_Bot')

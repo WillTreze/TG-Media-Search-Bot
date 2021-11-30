@@ -1,4 +1,4 @@
-# [Media Search bot](https://github.com/Mahesh0253/Media-Search-bot)
+# Media Search bot
 
 * Index channel or group files for inline search.
 * When you post file on telegram channel or group this bot will save that file in database, so you can search easily in inline mode.
@@ -19,15 +19,24 @@ python3 -m venv env
 
 # Activate virtual environment
 env\Scripts\activate.bat # For Windows
-source env/bin/activate # For Linux or MacOS
+source env/bin/activate && set -a; source .env; set +a # For Linux or MacOS
 
 # Install Packages
 pip3 install -r requirements.txt
 
-# Edit info.py with variables as given below then run bot
+# or unique command
+python3 -m venv env \
+&& \
+source env/bin/activate \
+&& \
+set -a; source .env; set +a \
+&& \
+pip3 install -r requirements.txt
+
+# Edit .env
 python3 bot.py
 ```
-Check [`sample_info.py`](sample_info.py) before editing [`info.py`](info.py) file
+Check [`.env-example`](.env-example) rename to `.env` and file
 
 ### Docker
 ```
@@ -44,10 +53,10 @@ docker run -d \
 ```
 You can also run with `env` file like below,
 ```
-docker run -d \ 
-     --env-file .env \
-     --restart on-failure \
-     --name mediasearchbot botxtg/media-search-bot
+docker run -d \
+  --env-file .env \
+  --restart on-failure \
+  --name mediasearchbot botxtg/media-search-bot
 ```
 
 ## Variables
