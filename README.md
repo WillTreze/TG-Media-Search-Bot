@@ -53,10 +53,12 @@ docker run -d \
 ```
 You can also run with `env` file like below,
 ```
+docker build -t tg-media-search-bot . \
+&& \
 docker run -d \
   --env-file .env \
   --restart on-failure \
-  --name mediasearchbot botxtg/media-search-bot
+  --name tg-media_search_bot tg-media-search-bot:latest
 ```
 
 ## Variables
