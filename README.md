@@ -49,16 +49,14 @@ docker run -d \
     -e DATABASE_URI="mongodb+srv://...mongodb.net/Database?retryWrites=true&w=majority" \
     -e DATABASE_NAME=databasename \
     --restart on-failure \
-    --name mediasearchbot botxtg/media-search-bot
+    --name tg-media_search_bot willtreze/tg-media-search-bot:latest
 ```
 You can also run with `env` file like below,
 ```
-docker build -t tg-media-search-bot . \
-&& \
 docker run -d \
   --env-file .env \
   --restart on-failure \
-  --name tg-media_search_bot tg-media-search-bot:latest
+  --name tg-media_search_bot willtreze/tg-media-search-bot:latest
 ```
 
 ## Variables
