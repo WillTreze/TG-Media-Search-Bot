@@ -36,7 +36,7 @@ pip3 install -r requirements.txt
 # Edit .env
 python3 bot.py
 ```
-Check [`.env-example`](.env-example) rename to `.env` and file
+Check [`.env.example`](.env.example) rename to `.env` and file
 
 ### Docker
 ```

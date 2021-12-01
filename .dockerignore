@@ -1,5 +1,10 @@
 .github
 .gitignore
+.git
+.ipynb_checkpoints
+env.*
+.env
+.env.*
 Procfile
 app.json
 Dockerfile
